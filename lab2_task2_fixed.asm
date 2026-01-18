@@ -1,7 +1,6 @@
-; Task2.asm
+; Task2_fixed.asm
 ;
-; Created: 23/11/2023 11:19:11 AM
-; Author : Buddhi Wijenyake
+; Button press drives INT0 (PD2) LOW -> LED ON (PD0)
 ;
 
 .include	"m328pdef.inc"
@@ -29,8 +28,8 @@ loop:
 isr_into:
 	in		r16, PIND
 	sbrs	r16,2
-	rjmp	off
 	rjmp	on
+	rjmp	off
 	reti
 	
 
