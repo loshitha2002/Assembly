@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "unoPort",
+      "type": "promptString",
+      "description": "Arduino Uno COM port (e.g. COM9)",
+      "default": "COM9"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Upload HEX: lab2_task1.hex (Uno)",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\bin\\avrdude.exe",
+      "args": [
+        "-C",
+        "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf",
+        "-v",
+        "-p",
+        "atmega328p",
+        "-c",
+        "arduino",
+        "-P",
+        "${input:unoPort}",
+        "-b",
+        "115200",
+        "-D",
+        "-U",
+        "flash:w:${workspaceFolder}\\lab2_task1.hex:i"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Upload HEX: lab2_task2_fixed.hex (Uno)",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\bin\\avrdude.exe",
+      "args": [
+        "-C",
+        "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf",
+        "-v",
+        "-p",
+        "atmega328p",
+        "-c",
+        "arduino",
+        "-P",
+        "${input:unoPort}",
+        "-b",
+        "115200",
+        "-D",
+        "-U",
+        "flash:w:${workspaceFolder}\\lab2_task2_fixed.hex:i"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Upload HEX: lab2_task3.hex (Uno)",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\bin\\avrdude.exe",
+      "args": [
+        "-C",
+        "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf",
+        "-v",
+        "-p",
+        "atmega328p",
+        "-c",
+        "arduino",
+        "-P",
+        "${input:unoPort}",
+        "-b",
+        "115200",
+        "-D",
+        "-U",
+        "flash:w:${workspaceFolder}\\lab2_task3.hex:i"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
