@@ -6,6 +6,16 @@
       "type": "promptString",
       "description": "Arduino Uno COM port (e.g. COM9)",
       "default": "COM9"
+    },
+    {
+      "id": "unoBaud",
+      "type": "pickString",
+      "description": "Upload baud rate (try 115200 first; use 57600 if sync fails)",
+      "options": [
+        "115200",
+        "57600"
+      ],
+      "default": "115200"
     }
   ],
   "tasks": [
@@ -24,7 +34,7 @@
         "-P",
         "${input:unoPort}",
         "-b",
-        "115200",
+        "${input:unoBaud}",
         "-D",
         "-U",
         "flash:w:${workspaceFolder}\\lab2_task1.hex:i"
@@ -46,10 +56,32 @@
         "-P",
         "${input:unoPort}",
         "-b",
-        "115200",
+        "${input:unoBaud}",
         "-D",
         "-U",
         "flash:w:${workspaceFolder}\\lab2_task2_fixed.hex:i"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Upload HEX: lab2_task2_pb2_pcint.hex (Uno)",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\bin\\avrdude.exe",
+      "args": [
+        "-C",
+        "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf",
+        "-v",
+        "-p",
+        "atmega328p",
+        "-c",
+        "arduino",
+        "-P",
+        "${input:unoPort}",
+        "-b",
+        "${input:unoBaud}",
+        "-D",
+        "-U",
+        "flash:w:${workspaceFolder}\\lab2_task2_pb2_pcint.hex:i"
       ],
       "problemMatcher": []
     },
@@ -68,7 +100,7 @@
         "-P",
         "${input:unoPort}",
         "-b",
-        "115200",
+        "${input:unoBaud}",
         "-D",
         "-U",
         "flash:w:${workspaceFolder}\\lab2_task3.hex:i"
