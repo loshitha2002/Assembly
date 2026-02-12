@@ -38,13 +38,13 @@ isr_into:
     sbrs r16, 2
     reti
 
-    ldi oLoopR, 0x4B
+    ldi oLoopR, 0x6D
     rcall oLoop
 
     ldi r16, (1<<1)|(1<<3)
     out PORTB, r16
 
-    ldi oLoopR, 0x4B
+    ldi oLoopR, 0x6D
     rcall oLoop
 
     ldi r16,(1<<0)|(1<<4)
@@ -57,7 +57,7 @@ isr_into:
     ldi r16, (1<<1)|(1<<3)
     out PORTB, r16
 
-    ldi oLoopR, 0x4B
+    ldi oLoopR, 0x6D
     rcall oLoop
 
     reti
